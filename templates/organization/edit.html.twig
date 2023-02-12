@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.home'|trans }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('organization') }}" class="btn btn-default">
+                <i class="fa fa-arrow-left"></i> {{ 'Back to list'|trans }}
+            </a>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        {# Bootstrap panel heading #}
+        <div class="panel-heading">
+            <h3 class="panel-title">Edit organization</h3>
+        </div>
+        {% include 'organization/_form.html.twig' %}
+    </div>
+{% endblock %}
+
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {% include 'organization/_js.html.twig' %}
+{% endblock %}

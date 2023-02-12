@@ -1,0 +1,24 @@
+<div class="panel-body">
+    <div class="row">
+        <div class="col-md-12">
+
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.description) }}
+            <h6>Users:</h6>
+            <ul class="users list-group" data-index="{{ form.users|length > 0 ? form.users|last.vars.name + 1 : 0 }}"
+                data-prototype="{{ form_widget(form.users.vars.prototype)|e('html_attr') }}">
+                {% for user in form.users %}
+                    <li class="list-group-item mb-2">
+                        {{ form_widget(user) }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <button type="button" class="add_item_link btn btn-secondary btn-sm mt-2 mb-2" data-collection-holder-class="users"><i class="ph-plus me-2"></i>{{ 'Add user'|trans }}</button>
+
+            {{ form_row(form.save) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>

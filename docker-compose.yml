@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  database:
+    ports:
+      - "3306:3306"
+    image: mariadb:10.9
+    environment:
+      - MYSQL_ROOT_PASSWORD=app
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=app
+    volumes:
+      - app-db-data:/var/lib/mysql
+
+volumes:
+###> doctrine/doctrine-bundle ###
+  app-db-data:
+###< doctrine/doctrine-bundle ###

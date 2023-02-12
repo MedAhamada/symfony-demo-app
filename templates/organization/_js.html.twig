@@ -1,0 +1,50 @@
+<script type="application/javascript">
+
+    const addUserFormDeleteLink = (item) => {
+        const removeFormButton = document.createElement('button');
+        removeFormButton.innerHTML = "<i class='fa-solid fa-trash'></i>{{ 'Remove'|trans }}";
+        removeFormButton.classList.add('btn', 'btn-danger', 'btn-sm');
+
+        item.append(removeFormButton);
+
+        removeFormButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            // remove the li for the tag form
+            item.remove();
+        });
+    };
+
+    const addFormToCollection = (e) => {
+        const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+
+        const item = document.createElement('li');
+        item.classList.add('list-group-item', 'mb-2', 'border');
+
+        item.innerHTML = collectionHolder
+            .dataset
+            .prototype
+            .replace(
+                /__name__/g,
+                collectionHolder.dataset.index
+            );
+
+        collectionHolder.appendChild(item);
+
+        collectionHolder.dataset.index++;
+        addUserFormDeleteLink(item);
+    };
+
+    document
+        .querySelectorAll('.add_item_link')
+        .forEach(btn => {
+            console.log(btn);
+            btn.addEventListener("click", addFormToCollection)
+        });
+
+    document
+        .querySelector('.users')
+        .querySelectorAll('li')
+        .forEach(item => {
+            addUserFormDeleteLink(item);
+        });
+</script>

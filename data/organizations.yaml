@@ -1,0 +1,3 @@
+organizations:
+    2: { name: YouTube, description: 'YouTube est un site web d’hébergement de vidéos et un média social sur lequel les utilisateurs peuvent envoyer, regarder, commenter, évaluer et partager des vidéos', users: [{ name: Nathalie, role: [ADMIN, CEO], password: demo }, { name: Martin, role: [ADMIN, CTO], password: demo2 }, { name: Sophie, role: [SALES], password: demo3 }] }
+    3: { name: 'Monroe Davidson Traders', description: 'Joyner Robinson Trading', users: [{ name: 'Hickman Guthrie Associates', password: 'Mccarty and Carver Plc', role: [CEO, ADMIN] }] }
