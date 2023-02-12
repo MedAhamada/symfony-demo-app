@@ -30,7 +30,7 @@ jobs:
 
       - name: Update php dependencies
         run: |
-          composer install --no-interaction --no-progress --no-suggest --optimize-autoloader
+          composer install --no-interaction --no-progress --optimize-autoloader
 
       - name: Run unit tests
         run: |
