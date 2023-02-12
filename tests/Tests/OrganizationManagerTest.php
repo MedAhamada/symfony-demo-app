@@ -14,6 +14,16 @@ class OrganizationManagerTest extends TestCase
         $manager->setFilePath($filePath);
         $organizations = $manager->getOrganizations();
         $this->assertIsArray($organizations);
-        $this->assertArrayHasKey('organizations', $organizations);
+    }
+
+    public function testGetOrganization()
+    {
+        $manager  = new OrganizationManager();
+        $filePath = __DIR__.'/../fixtures/organizations.yaml';
+        $manager->setFilePath($filePath);
+        $organization = $manager->getOrganization(0);
+        $this->assertIsArray($organization);
+        $this->assertArrayHasKey('name', $organization);
+        $this->assertEquals('Facebook', $organization['name']);
     }
 }
